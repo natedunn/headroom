@@ -1,15 +1,15 @@
 import '../styles/globals.css';
 import type { AppType } from 'next/dist/shared/lib/utils';
-import { ApolloProvider } from '@apollo/client';
-import { client } from '@lib/apollo-client';
+import { Provider } from 'urql';
+import { client } from '@root/src/lib/queryClient';
 import { DefaultSeo } from 'next-seo';
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <ApolloProvider client={client}>
+    <Provider value={client}>
       <DefaultSeo title='hello' />
       <Component {...pageProps} />
-    </ApolloProvider>
+    </Provider>
   );
 };
 export default MyApp;

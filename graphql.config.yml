@@ -1,14 +1,13 @@
-schema:
-  - https://useheadless.wpengine.com/graphql
-documents:
-  - 'src/**/*.graphql'
-  - 'src/gql/**/*.ts'
+overwrite: true
+schema: 'https://useheadless.wpengine.com/graphql'
+documents: 'src/lib/graphql/**/*.graphql'
 generates:
-  src/lib/gql/__generated__/graphql.ts:
+  src/lib/graphql/_generated.ts:
     plugins:
       - 'typescript'
       - 'typescript-operations'
-      - 'typescript-react-apollo'
+      - 'urql-introspection'
+      - 'typescript-urql'
     config:
       withRefetchFn: true
       documentVariableSuffix: 'Query'

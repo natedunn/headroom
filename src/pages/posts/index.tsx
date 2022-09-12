@@ -1,5 +1,5 @@
 import { InferGetStaticPropsType } from 'next';
-import { client } from '@lib/apollo-client';
+import { ssgClient } from '@lib/queryClient';
 import { PostsPageQuery } from '@codegen';
 
 export default function PostsPage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -19,15 +19,18 @@ export default function PostsPage({ posts }: InferGetStaticPropsType<typeof getS
 }
 
 export const getStaticProps = async () => {
-  const { data } = (await client.query({
-    query: PostsPageQuery,
-  })) as { data: PostsPageQuery };
+  const { data } = (await ssgClient()
+    .query(PostsPageQuery, {
+      id: '/',
+      idType: 'URI',
+    })
+    .toPromise()) as { data: PostsPageQuery };
 
   return {
     props: {
       seo: data?.page?.seo,
       posts: data?.posts?.nodes,
     },
-    // revalidate: 120,
+    revalidate: 120,
   };
 };
