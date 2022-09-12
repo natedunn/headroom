@@ -1,0 +1,12 @@
+overwrite: true
+schema: "https://useheadless.wpengine.com/graphql"
+documents: "src/**/*.graphql"
+generates:
+  src/lib/graphql/_generated:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "urql-introspection"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
