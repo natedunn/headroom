@@ -1,5 +1,5 @@
 import { InferGetStaticPropsType } from 'next';
-import { client } from '@lib/apollo-client';
+import { client } from '@lib/queryClient';
 import { PostsPageQuery } from '@codegen';
 
 export default function PostsPage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
