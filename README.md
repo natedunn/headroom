@@ -1,3 +1,3 @@
 # Headroom
 
-## The easiest way to get started with Next.js and Headless
+## Just a flexible, modern starting point for headless Next.js projects
