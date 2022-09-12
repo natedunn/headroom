@@ -1,0 +1,17 @@
+schema:
+  - https://useheadless.wpengine.com/graphql
+documents:
+  - 'src/**/*.graphql'
+  - 'src/gql/**/*.ts'
+generates:
+  src/lib/gql/__generated__/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withRefetchFn: true
+      documentVariableSuffix: 'Query'
+      namingConvention:
+        typeNames: change-case-all#pascalCase
+        enumValues: change-case-all#upperCase

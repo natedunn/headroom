@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -14,8 +15,39 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "@codegen": ["src/lib/gql/__generated__/graphql.ts"],
+      "@root/*": ["*"],
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@hooks/*": [
+        "src/lib/hooks/*"
+      ],
+      "@queries/*": [
+        "src/lib/queries/*"
+      ],
+      "@queries": [
+        "src/lib/queries/index.ts"
+      ],
+      "@mutations/*": [
+        "src/lib/mutations/*"
+      ],
+      "@mutations": [
+        "src/lib/mutations/index.ts"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts": [
+        "src/components/layouts/index.tsx"
+      ],
+      "@assets/*": [
+        "public/assets/*"
+      ],
+    },
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", "headroom.config.js"],
+  "exclude": ["node_modules"],
 }

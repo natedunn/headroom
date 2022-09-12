@@ -1,18 +1,15 @@
-import "../styles/globals.css";
-import type { AppType } from "next/dist/shared/lib/utils";
-import { SessionProvider } from "next-auth/react";
+import '../styles/globals.css';
+import type { AppType } from 'next/dist/shared/lib/utils';
+import { ApolloProvider } from '@apollo/client';
+import { client } from '@lib/apollo-client';
+import { DefaultSeo } from 'next-seo';
 
-const MyApp: AppType = ({
-  Component,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  pageProps: { session, ...pageProps },
-}) => {
+const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <SessionProvider session={session}>
+    <ApolloProvider client={client}>
+      <DefaultSeo title='hello' />
       <Component {...pageProps} />
-    </SessionProvider>
+    </ApolloProvider>
   );
 };
-
 export default MyApp;

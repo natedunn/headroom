@@ -1,0 +1,43 @@
+query POSTS($first: Int, $after: String) {
+  posts(first: $first, after: $after) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        title
+        content
+        author {
+          node {
+            lastName
+            firstName
+          }
+        }
+      }
+    }
+  }
+}
+
+query POSTS_PAGE($id: ID!, $idType: PageIdType!) {
+  page(id: $id, idType: $idType) {
+    seo {
+      title
+      metaDesc
+    }
+  }
+  posts {
+    nodes {
+      databaseId
+      title
+      content
+      author {
+        node {
+          firstName
+          lastName
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+query GENERAL_SETTINGS {
+  generalSettings {
+    description
+  }
+}
