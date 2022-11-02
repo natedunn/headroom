@@ -1,15 +1,13 @@
-type Props = {
-  children: React.ReactNode;
-};
+import '../styles/globals.css';
 
-export default function RootLayout({ children }: Props) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function RootLayout({ children }: { children: any }) {
   return (
-    <div>
-      <h1>Root Layout</h1>
-      <div>
-        Children:
-        {children}
-      </div>
-    </div>
+    <html lang='en'>
+      <head>
+        <title>Hello</title>
+      </head>
+      <body>{children}</body>
+    </html>
   );
 }
