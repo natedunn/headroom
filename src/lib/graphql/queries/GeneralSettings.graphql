@@ -1,7 +1,0 @@
-query GENERAL_SETTINGS {
-  generalSettings {
-    title
-    description
-    url
-  }
-}
