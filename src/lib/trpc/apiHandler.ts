@@ -1,10 +1,7 @@
-import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
-import type { AppRouter } from '../pages/api/trpc/[trpc]';
 import type { APIRoute, APIContext } from 'astro';
 import { AnyRouter, inferRouterContext, Dict, TRPCError } from '@trpc/server';
 import { resolveHTTPResponse } from '@trpc/server/http';
 import type { HTTPRequest } from '@trpc/server/dist/http/internals/types';
-// import type { HTTPRequest } from '@trpc/server/dist/declarations/src/http/internals/types';
 
 export type CreateContextFn<TRouter extends AnyRouter> = (
   APIContext: APIContext
@@ -62,15 +59,3 @@ export function createAstroTRPCApiHandler<TRouter extends AnyRouter>(opts: {
     return new Response(body, { status, headers });
   };
 }
-
-export const trpc = createTRPCProxyClient<AppRouter>({
-  links: [
-    httpBatchLink({
-      // todo: make this url dynamic for local/dev/prod
-      url:
-        process.env.NODE_ENV === 'production'
-          ? import.meta.env.TRPC_ENDPOINT_URL
-          : `http://127.0.0.1:3000/api/trpc`,
-    }),
-  ],
-});
