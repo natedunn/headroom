@@ -1,7 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { trpc } from '../lib/trpc';
+
+let hello = await trpc.hello.query();
 ---
 
 <Layout title='Posts'>
-  <div>Hello</div>
+  <div>Posts: {hello}</div>
 </Layout>
