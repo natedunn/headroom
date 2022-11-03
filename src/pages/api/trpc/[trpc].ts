@@ -1,7 +1,6 @@
+import type { APIRoute } from 'astro';
 import { initTRPC } from '@trpc/server';
-import { createProxySSGHelpers } from '@trpc/react-query/ssg';
-import { createAstroTRPCApiHandler } from '../../../lib/trpc/apiHandler';
-import { createTRPCProxyClient } from '@trpc/client';
+import { createAstroTRPCApiHandler } from '../../../lib/trpc';
 
 const t = initTRPC.create();
 
@@ -15,19 +14,11 @@ const appRouter = t.router({
     return `hello right back to you!`;
   }),
 });
+
 export type AppRouter = typeof appRouter;
 
-export const all = createAstroTRPCApiHandler({
+// Return 'all' as an Astro api route
+export const all: APIRoute = createAstroTRPCApiHandler({
   router: appRouter,
   ctx: async () => {},
 });
-
-// export async function getStaticPaths() {
-//   return Object.keys(appRouter).map((key) => {
-//     return {
-//       params: {
-//         trpc: key,
-//       },
-//     };
-//   });
-// }
