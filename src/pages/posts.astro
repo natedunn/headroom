@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { trpc } from '../lib/trpc';
+import { client } from '@client';
 
-let users = await trpc.users.query();
+let users = await client.users.query();
 ---
 
 <Layout title='Posts'>

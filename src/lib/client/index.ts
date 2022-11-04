@@ -1,6 +1,6 @@
 import { initTRPC } from '@trpc/server';
 
-export { trpc } from './createClient';
+export { trpc as client } from './createClient';
 export { createAstroTRPCApiHandler } from './apiHandler';
 
 const t = initTRPC.create();
