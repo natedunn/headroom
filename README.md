@@ -1,11 +1,6 @@
 # Headroom
 
-## Just a flexible, modern starting point for headless Next.js projects
+## Features
 
-### Install
-
-Instructions coming soon.
-
-### Usage
-
-Instructions coming soon.
+- Typescript
+- Bring your own components
