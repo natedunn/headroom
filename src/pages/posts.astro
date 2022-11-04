@@ -2,9 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import { trpc } from '../lib/trpc';
 
-let hello = await trpc.hello.query();
+let users = await trpc.users.query();
 ---
 
 <Layout title='Posts'>
-  <div>Posts: {hello}</div>
+  <div>
+    {
+      users.map((user) => (
+        <div class='mt-2 border-t-2'>
+          <div>Name: {user.name}</div>
+          <div>ID: {user?.id}</div>
+        </div>
+      ))
+    }
+  </div>
 </Layout>
