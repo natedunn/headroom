@@ -7,10 +7,19 @@ const config: CodegenConfig = {
   emitLegacyCommonJSImports: false,
   generates: {
     'src/lib/codegen/_generated.ts': {
-      plugins: ['typescript', 'typescript-operations', 'urql-introspection', 'typescript-urql'],
+      plugins: [
+        'typescript',
+        'typescript-operations',
+        'urql-introspection',
+        {
+          'typescript-urql': {
+            withHooks: false,
+          },
+        },
+      ],
       config: {
         withRefetchFn: true,
-        documentVariableSuffix: 'Query',
+        documentVariableSuffix: '',
         namingConvention: {
           typeNames: 'change-case-all#pascalCase',
           enumValues: 'change-case-all#upperCase',
