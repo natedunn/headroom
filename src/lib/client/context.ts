@@ -2,21 +2,12 @@
 
 import type { inferAsyncReturnType } from '@trpc/server';
 import type * as trpcNext from '@trpc/server/adapters/next';
+import { urqlClient } from './_plugins/graphql/urqlClient';
 
 export const createContext = async ({ req, res }: trpcNext.CreateNextContextOptions) => {
-  const session = {
-    auth: () => {
-      return {
-        user: {
-          id: '1',
-          name: 'test',
-        },
-      };
-    },
-  };
   return {
     req,
-    session,
+    urql: urqlClient,
   };
 };
 

@@ -2,18 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import { client } from '@client';
 
-let users = await client.users.query();
+let posts = await client.posts.query();
+console.log(posts);
 ---
 
 <Layout title='Posts'>
-  <div>
-    {
-      users.map((user) => (
-        <div class='mt-2 border-t-2'>
-          <div>Name: {user.name}</div>
-          <div>ID: {user?.id}</div>
-        </div>
-      ))
-    }
-  </div>
+  <div>Posts</div>
 </Layout>

@@ -1,18 +1,19 @@
 {
-  "name": "@example/basics",
-  "type": "module",
-  "version": "0.0.1",
-  "private": true,
+  "name": "headroom",
+  "version": "2.0.0",
+  "private": false,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "codegen": "graphql-codegen --require dotenv/config --config codegen.ts"
   },
   "dependencies": {
     "@astrojs/image": "^0.11.1",
     "@astrojs/mdx": "^0.11.5",
+    "@astrojs/netlify": "^1.2.0",
     "@astrojs/node": "^2.0.2",
     "@astrojs/partytown": "^1.0.1",
     "@astrojs/prefetch": "^0.1.1",
@@ -23,9 +24,20 @@
     "@trpc/next": "10.0.0-rc.3",
     "@trpc/react-query": "10.0.0-rc.3",
     "@trpc/server": "10.0.0-rc.3",
+    "@urql/core": "^3.0.5",
     "astro": "^1.6.3",
+    "graphql": "^16.6.0",
+    "graphql-config": "^4.3.6",
     "superjson": "^1.11.0",
     "tailwindcss": "^3.2.1",
     "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.13.11",
+    "@graphql-codegen/introspection": "2.2.1",
+    "@graphql-codegen/typescript": "2.8.1",
+    "@graphql-codegen/typescript-operations": "2.5.6",
+    "@graphql-codegen/typescript-urql": "^3.7.3",
+    "@graphql-codegen/urql-introspection": "^2.2.1"
   }
 }
