@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { trpc } from '../lib/trpc';
+import { client } from '@client';
 
-let hello = await trpc.hello.query();
+let posts = await client.posts.query();
+console.log(posts);
 ---
 
 <Layout title='Posts'>
-  <div>Posts: {hello}</div>
+  <div>Posts</div>
 </Layout>

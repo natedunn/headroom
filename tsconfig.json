@@ -1,7 +1,15 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "baseUrl": ".",
     "strict": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "paths": {
+      "@codegen": ["src/lib/codegen/_generated"],
+      "@client": ["src/lib/client/index"],
+      "@client/*": ["src/lib/client/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+    }
   }
 }
