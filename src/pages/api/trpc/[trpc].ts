@@ -1,24 +1,9 @@
 import type { APIRoute } from 'astro';
-import { initTRPC } from '@trpc/server';
 import { createAstroTRPCApiHandler } from '../../../lib/trpc';
-
-const t = initTRPC.create();
-
-const appRouter = t.router({
-  test: t.procedure.query(() => {
-    return {
-      hello: 'world',
-    };
-  }),
-  hello: t.procedure.query(() => {
-    return `hello right back to you!`;
-  }),
-});
-
-export type AppRouter = typeof appRouter;
+import { appRouter } from '../../../lib/trpc/appRouter';
 
 // Return 'all' as an Astro api route
-export const all: APIRoute = createAstroTRPCApiHandler({
+export const all = createAstroTRPCApiHandler({
   router: appRouter,
   ctx: async () => {},
 });
