@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import netlify from '@astrojs/netlify/edge-functions';
 
 export default defineConfig({
-  site: 'https://headroom.dev',
+  site: import.meta.env.PUBLIC_PROD_URL,
   integrations: [tailwind()],
   output: 'server',
   adapter: netlify(),
