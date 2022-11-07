@@ -6,7 +6,7 @@ export const urqlClient = createClient({
   exchanges: defaultExchanges,
 });
 
-export const gqlQuery = async <T>(
+export const fetchGQL = async <T>(
   QUERY: DocumentNode,
   vars: AnyVariables
 ): Promise<OperationResult<T, AnyVariables>> => {

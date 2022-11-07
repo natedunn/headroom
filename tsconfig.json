@@ -5,11 +5,29 @@
     "strict": true,
     "strictNullChecks": true,
     "paths": {
-      "@codegen": ["src/lib/codegen/_generated"],
-      "@client": ["src/lib/client/index"],
-      "@client/*": ["src/lib/client/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
+      "@invoker": [
+        "src/lib/invokers"
+      ],
+      "@fetcher": [
+        "src/lib/fetchers"
+      ],
+      "@codegen": [
+        "src/lib/codegen/_generated"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "typeAcquisition": {
+        "enable": true
     }
   }
 }
