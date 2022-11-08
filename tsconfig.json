@@ -26,8 +26,5 @@
     },
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "typeAcquisition": {
-        "enable": true
-    }
   }
 }

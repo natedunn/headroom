@@ -1,13 +1,9 @@
 import { fetcher } from '@fetcher';
-import type { PageQueryOptions, PostsQuery } from '@codegen';
+import type { PageQueryOptions, PostsQuery, PostsQueryVariables } from '@codegen';
 import { gql } from '@urql/core';
 
-// Adjusting Graphql vars since codegen
-// doesn't provide exactly what we want
-type PostVariables = { options?: PageQueryOptions } | undefined;
-
 // Query method
-const getPosts = async (variables?: PostVariables) => {
+const getPosts = async (variables?: PostsQueryVariables) => {
   const { data } = await fetcher.gql<PostsQuery>(
     gql`
       query Posts($options: PageQueryOptions) {
@@ -35,7 +31,7 @@ const getPosts = async (variables?: PostVariables) => {
 
 // Add methods to exported object
 export default {
-  query(variables?: PostVariables) {
+  query(variables?: PostsQueryVariables) {
     return getPosts(variables);
   },
   mutate({ message }: { message: string }) {

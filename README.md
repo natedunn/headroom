@@ -12,4 +12,4 @@ A simple, starter kit for building static sites with Astro. Built in Typescript 
 
 ## Documentation
 
-You can read documentation and see examples at [headroom.natedunn.net](https://headroom.natedunn.net).
+You can read documentation and see examples at [headroom.natedunn.net](https://headroom.natedunn.net/docs).

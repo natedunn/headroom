@@ -1,14 +1,25 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { invoker } from '@invoker';
+import Link from '@components/Link.astro';
 
 const todo = await invoker.todo.query();
 ---
 
-<Layout title='Rest Test'>
+<Layout title='REST & invoker functions'>
   <div class='p-4 dark:text-white'>
-    <h1 class='text-5xl font-bold'>Examples</h1>
-    <p class='mt-3'>Here are some examples of how to use Headroom</p>
+    <h1 class='text-5xl font-bold'>REST & invoker functions</h1>
+    <div class='space-y-2 mt-6'>
+      <p>In this exmaple, we call an invoker function that does a simple REST call.</p>
+      <p>
+        <Link
+          href='https://github.com/natedunn/headroom/blob/main/src/pages/examples/rest/index.astro'
+          target='_blank'
+        >
+          See code for example →
+        </Link>
+      </p>
+    </div>
     <div class='mt-10 p-12 dark:bg-slate-800 bg-slate-200 rounded-lg'>
       <h3 class='text-2xl'>Todo Details:</h3>
       <ul class='flex flex-col gap-2 mt-6'>
