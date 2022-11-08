@@ -1,6 +1,8 @@
+<br/>
+
 # ![Headroom](./public/logo.webp)
 
-A simple, starter kit for building static sites with Astro. Built in Typescript and includes Tailwind CSS and tRPC-like APIs for clean templates & components.
+A simple starter kit for building static sites with Astro. Built in Typescript and includes Tailwind CSS and tRPC-like APIs for clean templates & components.
 
 ## Features
 
