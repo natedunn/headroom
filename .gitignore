@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # Codegen
 /src/lib/codegen/_generated.ts
+
+# Astro
+.astro
